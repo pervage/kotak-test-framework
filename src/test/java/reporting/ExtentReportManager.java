@@ -18,8 +18,8 @@ public class ExtentReportManager {
         extent.setSystemInfo("Host Name", "SoftwareTestingMaterial");
         extent.setSystemInfo("Environment", CommonUtils.getEnv());
         extent.setSystemInfo("User Name", "Pervage Alam");
-        spark.config().setDocumentTitle("Title of the Report Comes here ");
-        spark.config().setReportName("Name of the Report Comes here ");
+        spark.config().setDocumentTitle("Kotak Automation Report");
+        spark.config().setReportName("Commercial Credit Card Execution");
         spark.config().setTheme(Theme.STANDARD);
         extent.attachReporter(spark);
     }
