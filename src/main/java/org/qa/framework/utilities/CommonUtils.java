@@ -1,7 +1,12 @@
 package org.qa.framework.utilities;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 @Slf4j
@@ -41,5 +46,26 @@ public class CommonUtils {
 
     public static String getPropValue(String propKey){
         return getProperty().getProperty(propKey);
+    }
+
+    public static String getFolderPath(String path) {
+        String folderPath = System.getProperty("user.dir") + path;
+        createDirectory(folderPath);
+        return folderPath;
+    }
+
+    private static void createDirectory(String folderPath) {
+        Path path = Paths.get(folderPath);
+        if (!Files.exists(path)) {
+            try {
+                Files.createDirectories(path);
+                log.info("Directory was created.\n"+folderPath);
+            } catch (IOException exp) {
+                System.out.println(exp.getMessage()+"\n"+exp);
+            }
+        }
+        else {
+            log.info("Directory is already present.\n"+folderPath);
+        }
     }
 }

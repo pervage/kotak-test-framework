@@ -55,6 +55,11 @@
             <version>7.7.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -64,7 +69,7 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng-ui.xml</suiteXmlFile>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
