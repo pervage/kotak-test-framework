@@ -28,12 +28,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v1
-    - name: Setup Firefox
-      uses: browser-actions/setup-firefox@v1
-    - name: Setup Edge
-      uses: browser-actions/setup-edge@v1
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
     - name: Build and Test with Maven
       run: mvn test
 
