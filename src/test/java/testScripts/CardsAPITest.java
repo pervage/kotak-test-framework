@@ -42,6 +42,6 @@ public class CardsAPITest extends ApiBaseClass {
         return getRequestSpecs()
                 .baseUri(CommonUtils.getPropValue("host_url"))
                 .basePath(CommonUtils.getPropValue("base_path"))
-                .get(CommonUtils.getPropValue("commercial_cards"));
+                .get(CommonUtils.getPropValue("premium_cards"));
     }
 }

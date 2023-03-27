@@ -30,6 +30,16 @@ public class WebHelper {
     }
 
     /**
+     * element click using js executor
+     *
+     * @param ele - WebElement
+     */
+    public void jsScrollToView(WebElement ele) {
+        js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", ele);
+    }
+
+    /**
      * set attribute using js executor
      *
      * @param element - WebElement

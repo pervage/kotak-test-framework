@@ -21,7 +21,7 @@ import java.util.List;
 
 @Slf4j
 @Listeners({Listener.class})
-public class CommercialCardsUITest extends BaseClass {
+public class CardsUITest extends BaseClass {
 
     public CardsAPITest cardsAPITest = new CardsAPITest();
     public WebDriver driver;
@@ -49,10 +49,13 @@ public class CommercialCardsUITest extends BaseClass {
     }
 
     @Test(priority = 1,description = "Validating number of Cards")
-    public void selectCommercialCards(){
+    public void selectCards(){
         CreditCardPage creditCardPage = new CreditCardPage(driver);
-        creditCardPage.getCommercialTab().click();
-        int totalItems = Integer.parseInt(driver.findElement(By.xpath("(//span[@class='min-item total-size'][text()='3'])[1]")).getText());
+        Waits.explicitWaitByVisiblity(driver,creditCardPage.getPremiumTab(),4000);
+        webHelper.jsScrollToView(creditCardPage.getPremiumTab());
+        creditCardPage.getPremiumTab().click();
+        Waits.explicitWaitByVisiblity(driver,driver.findElement(By.xpath("//div[@class='head MT50']//span[@class='min-item total-size'][normalize-space()='6']")),4000);
+        int totalItems = Integer.parseInt(driver.findElement(By.xpath("//div[@class='head MT50']//span[@class='min-item total-size'][normalize-space()='6']")).getText());
         List<WebElement> noOfCards = driver.findElements(By.xpath("//div[@class='cmp-item em form-card']"));
         Response response = cardsAPITest.getResponse();
         Assert.assertEquals(totalItems,Integer.parseInt(response.jsonPath().getString("originalSize")));

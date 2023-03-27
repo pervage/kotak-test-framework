@@ -3,7 +3,7 @@
 <suite name="Commercial Card Test">
     <test name="Test UI Components">
         <classes>
-            <class name="testScripts.CommercialCardsUITest"/>
+            <class name="testScripts.CardsUITest"/>
             <class name="testScripts.CardsAPITest"/>
         </classes>
     </test> <!-- Test -->

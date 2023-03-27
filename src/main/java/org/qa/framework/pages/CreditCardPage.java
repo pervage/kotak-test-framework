@@ -14,6 +14,12 @@ public class CreditCardPage {
     @FindBy(xpath = "//*[@id='zcommercial']")
     private WebElement commercialTab;
 
+    @FindBy(xpath = "//a[@id='travel']")
+    private WebElement travelTab;
+
+    @FindBy(xpath = "//a[@id='premium']")
+    private WebElement premiumTab;
+
     public CreditCardPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver,this);
