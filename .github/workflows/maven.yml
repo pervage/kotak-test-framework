@@ -18,6 +18,7 @@ jobs:
   build:
     env:
       testEnv: qa
+      headless_mode: Yes
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
